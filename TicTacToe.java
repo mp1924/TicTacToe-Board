@@ -1,5 +1,29 @@
+import java.util.Scanner;
+
 public class TicTacToe {
 
+ UC3-Accept-User-Slot-Input
+    static Scanner scanner = new Scanner(System.in);
+
+    // UC3: Get user slot input
+    public static int getUserInput() {
+        int slot;
+
+        while (true) {
+            System.out.print("Enter a slot (1-9): ");
+
+            if (scanner.hasNextInt()) {
+                slot = scanner.nextInt();
+
+                if (slot >= 1 && slot <= 9) {
+                    return slot; // valid input
+                } else {
+                    System.out.println("Invalid input! Please enter a number between 1 and 9.");
+                }
+            } else {
+                System.out.println("Invalid input! Please enter a number.");
+                scanner.next(); // clear invalid input
+            }
     static char[][] board = {
         {'-', '-', '-'},
         {'-', '-', '-'},
@@ -17,14 +41,18 @@ public class TicTacToe {
         // Check if cell is empty
         if (board[row][col] != '-') {
             return false;
+          main
         }
 
         return true;
     }
 
     public static void main(String[] args) {
+UC3-Accept-User-Slot-Input
+        int userMove = getUserInput();
+        System.out.println("You selected slot: " + userMove);
 
-        int row = 1;
+      int row = 1;
         int col = 1;
 
         if (isValidMove(row, col)) {
@@ -32,5 +60,6 @@ public class TicTacToe {
         } else {
             System.out.println("Invalid move");
         }
+      main
     }
 }
