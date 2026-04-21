@@ -1,36 +1,19 @@
 public class TicTacToe {
 
-    static char[][] board = {
-        {'-', '-', '-'},
-        {'-', '-', '-'},
-        {'-', '-', '-'}
-    };
-
-    // UC5: Validate move
-    public static boolean isValidMove(int row, int col) {
-
-        // Check bounds
-        if (row < 0 || row > 2 || col < 0 || col > 2) {
-            return false;
-        }
-
-        // Check if cell is empty
-        if (board[row][col] != '-') {
-            return false;
-        }
-
-        return true;
+    // UC4: Convert slot to row & column
+    public static int[] convertSlotToIndex(int slot) {
+        int row = (slot - 1) / 3;
+        int col = (slot - 1) % 3;
+        return new int[]{row, col};
     }
 
     public static void main(String[] args) {
 
-        int row = 1;
-        int col = 1;
+        int slot = 5; // example input
 
-        if (isValidMove(row, col)) {
-            System.out.println("Valid move");
-        } else {
-            System.out.println("Invalid move");
-        }
+        int[] index = convertSlotToIndex(slot);
+
+        System.out.println("Row: " + index[0]);
+        System.out.println("Column: " + index[1]);
     }
 }
