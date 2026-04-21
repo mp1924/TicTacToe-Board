@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+ UC4-Convert-Slot-Number-to-Board-index
+   
  UC3-Accept-User-Slot-Input
     static Scanner scanner = new Scanner(System.in);
 
@@ -24,6 +26,7 @@ public class TicTacToe {
                 System.out.println("Invalid input! Please enter a number.");
                 scanner.next(); // clear invalid input
             }
+ main
     static char[][] board = {
         {'-', '-', '-'},
         {'-', '-', '-'},
@@ -41,18 +44,24 @@ public class TicTacToe {
         // Check if cell is empty
         if (board[row][col] != '-') {
             return false;
-          main
+ UC4-Convert-Slot-Number-to-Board-in  
+ main
         }
 
         return true;
     }
 
     public static void main(String[] args) {
+ UC4-Convert-Slot-Number-to-Board-index
+
+        int row = 1;
+
 UC3-Accept-User-Slot-Input
         int userMove = getUserInput();
         System.out.println("You selected slot: " + userMove);
 
       int row = 1;
+ main
         int col = 1;
 
         if (isValidMove(row, col)) {
@@ -60,6 +69,7 @@ UC3-Accept-User-Slot-Input
         } else {
             System.out.println("Invalid move");
         }
-      main
+ UC4-Convert-Slot-Number-to-Board-index
+   main
     }
 }
