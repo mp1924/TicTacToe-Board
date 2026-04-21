@@ -1,28 +1,33 @@
+import java.util.Scanner;
+
 public class TicTacToe {
 
-    static char[][] board = new char[3][3];
+    static Scanner scanner = new Scanner(System.in);
 
-    // Initialize board
-    public static void initializeBoard() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = '-';
-            }
-        }
-    }
+    // UC3: Get user slot input
+    public static int getUserInput() {
+        int slot;
 
-    // Display board
-    public static void displayBoard() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {   // ✅ fixed
-                System.out.print(board[i][j] + " ");
+        while (true) {
+            System.out.print("Enter a slot (1-9): ");
+
+            if (scanner.hasNextInt()) {
+                slot = scanner.nextInt();
+
+                if (slot >= 1 && slot <= 9) {
+                    return slot; // valid input
+                } else {
+                    System.out.println("Invalid input! Please enter a number between 1 and 9.");
+                }
+            } else {
+                System.out.println("Invalid input! Please enter a number.");
+                scanner.next(); // clear invalid input
             }
-            System.out.println();
         }
     }
 
     public static void main(String[] args) {
-        initializeBoard();
-        displayBoard();
+        int userMove = getUserInput();
+        System.out.println("You selected slot: " + userMove);
     }
 }
