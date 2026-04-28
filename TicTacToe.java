@@ -1,3 +1,19 @@
+ UC6-Place-move-on-Board
+public class TicTacToe {
+
+    static char[][] board = new char[3][3];
+
+    public static void main(String[] args) {
+        placeMove(0, 0, 'X');  // correct method call
+        System.out.println(board[0][0]); // should print X
+    }
+
+    // Places symbol on board at given row and column
+    static void placeMove(int row, int col, char symbol) {
+        board[row][col] = symbol;
+    }
+}
+
  UC9--Check-Winning-Condition
  public class TicTacToe {
 
@@ -80,5 +96,5 @@ public class TicTacToe {
         }
 
         // No empty cells → draw
-        return true;
-    main
+        return 
+        main
