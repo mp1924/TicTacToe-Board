@@ -1,109 +1,14 @@
- UC2-Toss-to-decide-First-player-and-symbol
-import java.util.Random;
-
 public class TicTacToe {
 
-    static char player1Symbol;
-    static char player2Symbol;
-    static char currentPlayer;
-
-    public static void decideFirstPlayer() {
-        Random rand = new Random();
-        int toss = rand.nextInt(2); // 0 or 1
-
-        if (toss == 0) {
-            player1Symbol = 'X';
-            player2Symbol = 'O';
-            currentPlayer = player1Symbol;
-
-            System.out.println("Player 1 starts!");
-        } else {
-            player1Symbol = 'O';
-            player2Symbol = 'X';
-            currentPlayer = player2Symbol;
-
-            System.out.println("Player 2 starts!");
-        }
-
-        System.out.println("Player 1 Symbol: " + player1Symbol);
-        System.out.println("Player 2 Symbol: " + player2Symbol);
-    }
+    static char[][] board = new char[3][3];
 
     public static void main(String[] args) {
-        decideFirstPlayer();
-
-import java.util.Scanner;
-
-public class TicTacToe {
-
- UC4-Convert-Slot-Number-to-Board-index
-   
- UC3-Accept-User-Slot-Input
-    static Scanner scanner = new Scanner(System.in);
-
-    // UC3: Get user slot input
-    public static int getUserInput() {
-        int slot;
-
-        while (true) {
-            System.out.print("Enter a slot (1-9): ");
-
-            if (scanner.hasNextInt()) {
-                slot = scanner.nextInt();
-
-                if (slot >= 1 && slot <= 9) {
-                    return slot; // valid input
-                } else {
-                    System.out.println("Invalid input! Please enter a number between 1 and 9.");
-                }
-            } else {
-                System.out.println("Invalid input! Please enter a number.");
-                scanner.next(); // clear invalid input
-            }
- main
-    static char[][] board = {
-        {'-', '-', '-'},
-        {'-', '-', '-'},
-        {'-', '-', '-'}
-    };
-
-    // UC5: Validate move
-    public static boolean isValidMove(int row, int col) {
-
-        // Check bounds
-        if (row < 0 || row > 2 || col < 0 || col > 2) {
-            return false;
-        }
-
-        // Check if cell is empty
-        if (board[row][col] != '-') {
-            return false;
- UC4-Convert-Slot-Number-to-Board-in  
- main
-        }
-
-        return true;
+        placeMove(0, 0, 'X');  // correct method call
+        System.out.println(board[0][0]); // should print X
     }
 
-    public static void main(String[] args) {
- UC4-Convert-Slot-Number-to-Board-index
-
-        int row = 1;
-
-UC3-Accept-User-Slot-Input
-        int userMove = getUserInput();
-        System.out.println("You selected slot: " + userMove);
-
-      int row = 1;
- main
-        int col = 1;
-
-        if (isValidMove(row, col)) {
-            System.out.println("Valid move");
-        } else {
-            System.out.println("Invalid move");
-        }
- UC4-Convert-Slot-Number-to-Board-index
-    main
+    // Places symbol on board at given row and column
+    static void placeMove(int row, int col, char symbol) {
+        board[row][col] = symbol;
     }
 }
